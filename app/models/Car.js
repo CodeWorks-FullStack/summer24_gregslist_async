@@ -9,14 +9,18 @@ export class Car {
     this.imgUrl = data.imgUrl
     this.year = data.year
     this.price = data.price
-    this.description = data.description
+    // NOTE default to empty string if car has no description
+    this.description = data.description || ''
     this.engineType = data.engineType
     // createdAt property can be passed through Date constructor so we can format to our liking
     this.createdAt = new Date(data.createdAt)
     // updatedAt property can be passed through Date constructor so we can format to our liking
     this.updatedAt = new Date(data.updatedAt)
-    this.color = data.color
+    // NOTE default to black if car has no color
+    this.color = data.color || '#000000'
+    // NOTE the account id of who created the car
     this.creatorId = data.creatorId
+    // NOTE an object containing information about who created the car {name, picture, id}
     this.creator = data.creator
   }
 
