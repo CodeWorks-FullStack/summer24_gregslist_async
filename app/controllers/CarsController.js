@@ -18,6 +18,7 @@ export class CarsController {
   }
 
   // CREATE
+  // NOTE we must be logged in to do this 🐕🪪
   async createCar() {
     try {
       event.preventDefault() // do not refresh
@@ -36,6 +37,7 @@ export class CarsController {
 
 
   // READ
+  // NOTE we don't need to be logged in to do this 🐕
   async getCars() {
     try {
       await carsService.getCars()
@@ -46,6 +48,7 @@ export class CarsController {
   }
 
   // DELETE
+  // NOTE we must be logged in to do this 🐕🪪
   async destroyCar(carId) {
     try {
       // NOTE have to await Pop.confirm
