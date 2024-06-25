@@ -7,9 +7,9 @@ import { setHTML, setText } from "../utils/Writer.js";
 export class CarsController {
   constructor() {
     AppState.on('cars', this.drawCars) // 💂 ---> AppState.cars
-    // NOTE drawCars fires off when the user is logged in
+    // NOTE drawCars fires off when the user logs in
     AppState.on('account', this.drawCars) // 💂 ---> AppState.account
-    // NOTE showCarForm fires off when the user is logged in
+    // NOTE showCarForm fires off when the user logs in
     AppState.on('account', this.showCarForm) // 💂 ---> AppState.account
 
     this.getCars()
