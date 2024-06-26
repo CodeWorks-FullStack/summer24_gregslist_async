@@ -9,7 +9,7 @@ class CarsService {
     // 🐕🗞️ --------> codeWorks sandbox API
     const response = await api.delete(`api/cars/${carId}`)
 
-    console.log('🐕🪓🏎️', response.data); // response data: 'deleted value'
+    console.log('🐕🪓🏎️ DELETED CAR', response.data); // response data: 'deleted value'
 
     const carIndex = AppState.cars.findIndex((car) => car.id == carId)
 
@@ -24,7 +24,7 @@ class CarsService {
     const response = await api.post('api/cars', carData)
 
     // NOTE response data is the car that was stored in the database, with extra properties assigned by the API/database (id, createdAt, creator, etc....)
-    console.log('🐕🚙✨<-------', response.data);
+    console.log('🐕🚙✨<------- CREATED CAR', response.data);
 
     // NOTE turn the response body into our Car model
     const newCar = new Car(response.data)
@@ -33,12 +33,12 @@ class CarsService {
 
   }
   async getCars() {
-    // 🐕------> codeWorks sandbox API
     // NOTE the string passed through as the argument to .get will be concatted to the end of your baseURL. This will send a GET request to https://sandbox.codeworksacademy.com/api/cars
+    // 🐕------> codeWorks sandbox API
     const response = await api.get('api/cars')
 
     // NOTE Always log the response data
-    console.log('🐕🏎️🚓🚙<-------', response.data);
+    console.log('🐕🏎️🚓🚙<------- GOT ALL THE CARS', response.data);
 
     // NOTE response.data is the array of data we care about (the meat)
     const newCars = response.data.map((carPOJO) => new Car(carPOJO))
